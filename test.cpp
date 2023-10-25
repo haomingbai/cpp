@@ -1,8 +1,22 @@
-#include<iostream>
+#include <stdio.h>
+
 using namespace std;
-int main(){
-	int i,a=2;
-	i=(a=a*3,a*5),a+6;
-	printf("a=%d,i=%d\n",a,i);
-	return 0;
+
+int main()
+{
+        int a,b,ans=0;
+
+        scanf("%d%d",&a,&b);
+
+        while (a)
+        {
+                printf("%d %d\n",a,b);
+                if (a&1) ans+=b;
+                a/=2;
+                b*=2;
+        }
+
+        printf("%d\n",ans);
+
+        return 0;
 }
