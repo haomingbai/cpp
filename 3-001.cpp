@@ -1,7 +1,7 @@
 /*************************************************************************
     > File Name: 3-001.cpp
     > Author: Haoming Bai
-    > Mail: haomingbai@hotmail.com 
+    > Mail: haomingbai@hotmail.com
     > Created Time: Fri Oct 13 08:00:46 2023
  ************************************************************************/
 
@@ -27,7 +27,7 @@ We can use use a set of global value to define the volume.*/
 
 m * x + n * y = d
 
-其中x和y是我们需要求解的未知数。这个方程有很多种解法，其中一种是使用扩展欧几里得算法。如果你想了解更多关于这个问题的信息，请参考¹。
+其中x和y是我们需要求解的未知数。这个方程有很多种解法，其中一种是使用扩展欧几里得算法。如果你想了解更多关于这个问题的信息，请参考&#185;。
 
 希望这可以帮助你解决问题！
 
@@ -104,35 +104,35 @@ int main(){
     a[0]=0;a[1]=0;
     fill(0);
     while(a[0]!=d&&a[1]!=d){
-	    while(v[1]-a[1]>=a[0]){
-		    empty(0,1);
-		    m[0]++;
-        	    if(a[0]==d||a[1]==d){
-            		break;
-        	    }
-		    fill(0);
-		    m[0]++;
-        	    if(a[0]==d||a[1]==d){
-            		break;
-        	    }
-	    }
-	    if(a[0]==d||a[1]==d){
-            	break;
+            while(v[1]-a[1]>=a[0]){
+                    empty(0,1);
+                    m[0]++;
+                    if(a[0]==d||a[1]==d){
+                        break;
+                    }
+                    fill(0);
+                    m[0]++;
+                    if(a[0]==d||a[1]==d){
+                        break;
+                    }
             }
-	    fill(0,1);
-	    m[0]++;
             if(a[0]==d||a[1]==d){
                 break;
             }
-	    empty(1);m[0]++;
+            fill(0,1);
+            m[0]++;
             if(a[0]==d||a[1]==d){
                 break;
             }
-	    empty(0,1);m[0]++;
+            empty(1);m[0]++;
             if(a[0]==d||a[1]==d){
                 break;
             }
-	    fill(0);m[0]++;
+            empty(0,1);m[0]++;
+            if(a[0]==d||a[1]==d){
+                break;
+            }
+            fill(0);m[0]++;
             if(a[0]==d||a[1]==d){
                 break;
             }
