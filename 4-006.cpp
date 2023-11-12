@@ -13,23 +13,47 @@ int length(long long int n){
 	return 1+length(n/10);
 }
 
-long long int move(int *p,int l){
-	int m=0;
-	int s;
-	int *k=p
-	for(int i=0;i<l;i++){
-		m=*(k+1);
-		*(k+1)=k
+void move(int *p,int l){
+	int m=0,n=0;
+	int s=*p;
+	int *k=p;
+	m=*k;
+	n=*(k+1);
+	for(int i=0;i<l-1;i++){
+		k++;
+		*k=m;
+		m=n;
+		n=*(k+1);
 	}
-
+	*p=m;
 }
 
-int isk(long long n){
+void add(int k[],int l){
+	int sum=0;
+	for(int i=0;i<l;i++) sum+=k[i];
+	k[0]=sum;
+}
+
+int isk(long long a){
+	int n=a;
 	int l=length(n);
 	int s[l];
-	for(int i=1)
+	for(int i=0;i<l;i++){
+		s[i]=n%10;
+		n/=10;
+	}
+	for(int i=0;s[0]<=a;i++){
+		move(&s[0],l);
+		add(s,l);
+		if(s[0]==a) return 1;
+	}
+	return 0;
 }
 
 int main(){
-	int aaa
+	int aaa;
+	cin>>aaa;
+	if(isk(aaa)==1) printf("Yes");
+	else printf("No");
+	return 0;
 }
