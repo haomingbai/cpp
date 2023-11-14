@@ -63,16 +63,17 @@ using namespace std;
 	cin>>a>>b>>m;
 }*/
 
-int main(){
+/*int main(){
 	unsigned long long int a,b,m,r=1;
 	cin>>a>>b>>m;
-	a%=m;
+	//a%=m;
 	unsigned long long int s=a;
 	while(b){
 		if(b&1==1){
 			r*=s;
 			r%=m;
 			b=(b>>1)<<1;
+			//b-=1;
 		}else{
 			b=b>>1;
 			a*=a;
@@ -83,4 +84,16 @@ int main(){
 	r%=m;
 	cout<<r<<endl;
 	return 0;
+}*/
+
+int main() {
+    unsigned long long a, b, m, ans = 1;
+    cin >> a >> b >> m;
+    while (b) {
+        if (b % 2 == 1) ans = ans * a % m;
+        b /= 2;
+        a = a * a % m;
+    }
+    cout << ans << endl;
+    return 0;
 }
