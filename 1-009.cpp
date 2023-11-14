@@ -17,7 +17,7 @@ using namespace std;
  5、流程结束后，将所有寄存结果相乘，再求余数
  */
 /*(a^b)%m*/
-int main(){
+/*int main(){
         //unsigned long long int a,b,t,m,r,i;
         unsigned __int128 t,i;
 	unsigned long long int a,b,m,r;
@@ -42,10 +42,10 @@ int main(){
 		b=b/2;
 	}
 	//cout<<c[i]<<end;
-	/*for(int l=1;l<=i;l++){
+	for(int l=1;l<=i;l++){
 		t=t*c[l];
 		t=t%m;
-	}*/
+	}
 	int di=0;
 	while(c[di]!=0){
 		t=t*c[di];
@@ -55,10 +55,32 @@ int main(){
 	r=t;
         cout<<r<<endl;
         return 0;
-}
+}*/
 
 
 /*int main(){
 	unsigned long long int a,b,m;
 	cin>>a>>b>>m;
 }*/
+
+int main(){
+	unsigned long long int a,b,m,r=1;
+	cin>>a>>b>>m;
+	a%=m;
+	unsigned long long int s=a;
+	while(b){
+		if(b&1==1){
+			r*=s;
+			r%=m;
+			b=(b>>1)<<1;
+		}else{
+			b=b>>1;
+			a*=a;
+			a%=m;
+		}
+	}
+	r*=a;
+	r%=m;
+	cout<<r<<endl;
+	return 0;
+}

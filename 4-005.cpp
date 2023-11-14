@@ -30,5 +30,5 @@ int judge(int n){
 int main(){
 	int n;
 	cin>>n;
-	cout<<judge(n)<<endl;
+	cout<<"Result: "<<judge(n)<<endl;
 }
