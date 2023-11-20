@@ -82,7 +82,15 @@ int main(){
 
 //	Calculation
 	for(int i=0;i<T;i++){
-		scanf("")
+		cin>>n[0];
+		switch(n[0]){
+			case 1 : {
+						 cin>>n[1];
+					 }
+			case 2 : {
+						 cin>>n[2]>>n[3];
+					 }
+		}
 	}
 
 //	End
