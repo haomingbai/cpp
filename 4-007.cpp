@@ -6,7 +6,7 @@
  ************************************************************************/
 
 #include<iostream>
-#define _USE_MATH_DEFINES
+#define M_PI 3.1415926
 #include<cmath>
 #include<iomanip>
 #include<cstring>
@@ -53,7 +53,10 @@ double vol_calc_capsule_m(double r,double R,double l){
 }
 
 double vol_calc_cone(double r,double R,double h){
-	return vol_calc_cone(R,h)-vol_calc_cone(r,h);
+	double h1,h2;
+	h1=R*h/(R-r);
+	h2=r*h/(R-r);
+	return vol_calc_cone(R,h1)-vol_calc_cone(r,h2);
 }
 
 double vol_calc_ellipsoid(double a,double b,long c){
@@ -61,7 +64,7 @@ double vol_calc_ellipsoid(double a,double b,long c){
 }
 
 double vol_calc_rectangular_pyramid(long a,long h){
-	return 	pow(a,2.0)*h/3.0;
+	return 	(double)a*(double)a*(double)h/3.0;
 }
 
 double vol_calc_pipe(long d1,long d2,double l){

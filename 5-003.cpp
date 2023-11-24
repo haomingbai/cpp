@@ -19,11 +19,11 @@ int main(){
 }
 
 int prime(int n){
-	int count=1;
+	int count=0;
 	if(n==1) return 0;
+	int *N=(int *)malloc((n+1)*sizeof(int));
 	int *P=(int *)malloc((n+1)*sizeof(int));
-	*P=2;
-	for(int i=2;i<=n;i++){
+/*	for(int i=2;i<=n;i++){
 //		if(*(N+i)==1) continue;
 		for(int j=0;*(P+j);j++){
 			if(i%*(P+j)==0) break;
@@ -33,6 +33,13 @@ int prime(int n){
 			}
 		}
 //		count++;
+	}*/
+	for(int i=2;i<=n;i++){
+		if(!*(N+i)) *(P+(++count))=i;
+		for(int j=1;i**(P+j)<=n&&j<=count;j++){
+			*(N+i**(P+j))=1;
+			if((i)%*(P+j)==0) break;
+		}
 	}
 	return count;
 }
