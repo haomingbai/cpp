@@ -9,37 +9,7 @@
 #include<malloc.h>
 using namespace std;
 
-int det(int **p,int n){
-	int add[n],min[n];
-	for(int i=0,r=0,c=0;i<n;i++){
-		add[i]=1;
-		for(int j=0;j<n;j++){
-			if(r>=n) r-=n;
-			if(c>=n) c-=n;
-			add[i]*=p[r][c];
-			r++;
-			c++;
-		}
-		//cout<<add[i]<<endl;
-		r=0,c=i;
-	}
-	for(int i=0,r=n-1,c=0;i<n;i++){
-		min[i]=1;
-		for(int j=0;j<n;j++){
-			if(r<0) r+=n;
-			if(c>=n) c-=n;
-			min[i]*=p[r][c];
-			r--;
-			c++;
-		}
-		r=n-1;
-		c=i;
-		//cout<<min[i]<<endl;
-	}
-	int res=0;
-	for(int i=0;i<n;i++) res+=(add[i]-min[i]);
-	return res;
-}
+int det(int **mat,int n);
 
 int main(){
 	int **mat=NULL,n;
@@ -51,4 +21,31 @@ int main(){
 	}
 	cout<<det(mat,n)<<endl;
 	return 0;
+}
+
+int det(int **m,int n){
+	if(n==2) return(m[0][0]*m[1][1]-m[1][0]*m[0][1]);
+	int result=0;
+	int m_diagonal[n],s_diagonal[n];
+	for(int i=0;i<n;i++){
+		m_diagonal[i]=1;
+		for(int j=0,k=i;j<n;j++,k++){
+			if(k>=n) k-=n;
+			m_diagonal[i]*=m[j][k];
+		}
+		//cout<<m_diagonal[i]<<endl;
+	}
+	for(int i=0;i<n;i++){
+		s_diagonal[i]=1;
+		for(int j=0,k=i;j<n;j++,k--){
+			if(k<0) k+=n;
+			s_diagonal[i]*=m[j][k];
+		}
+		//cout<<s_diagonal[i]<<endl;
+	}
+	for(int i=0;i<n;i++){
+		result+=m_diagonal[i];
+		result-=s_diagonal[i];
+	}
+	return result;
 }

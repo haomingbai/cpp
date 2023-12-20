@@ -21,4 +21,3 @@ int main(){
     printf("%.6lf\n%.6lf",pow(base),pow(base,exp));
     return 0;
 }
-}

@@ -1,3 +1,33 @@
+/*************************************************************************
+    > File Name: 7-001.cpp
+    > Author: Haoming Bai
+    > Mail: haomingbai@hotmail.com 
+    > Created Time: 2023年12月13日 星期三 08时53分56秒
+ ************************************************************************/
+
+/*
+#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+
+int main(){
+	int n;
+	cin>>n;
+	vector<int> vec(n);
+	for(int i=0;i<n;i++) cin>>vec[n];
+	int val;
+	cin>>val;
+	vector<int>::iterator it = find(vec.begin(), vec.end(), val);
+
+    if (it != vec.end())
+        cout<<it-vec.begin()<<endl;
+    else
+        cout<<-1<<endl;
+	return 0;
+}
+*/
+
 #include<iostream>
 
 using namespace std;
@@ -47,6 +77,7 @@ int find(int tofind,int *data,int length){
     for(int *a=front;a<=rare;a++){
         if(*a==tofind) return (a-data);
     }
+        return -1;
 }
 
 int main(){
@@ -58,5 +89,8 @@ int main(){
     cin>>tofind;
     seq(data,length);
     //for(int i=0;i<length;i++) cout<<data[i]<<endl;
-    cout<<find(tofind,data,length)<<endl;
+    //cout<<find(tofind,data,length)<<endl;
+	printf("%d in [%d]",tofind,find(tofind,data,length));
+	return 0;
 }
+
