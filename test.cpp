@@ -1,7 +1,7 @@
-#include <iostream>
-#include <pthread.h>
+#include<iostream>
+#include<string>
+
 int main(){
-	int i=1;
-	i = ++i--;
-	std::cout<<i<<std::endl;
+	std::string a="Huawei",b="4G",c="5G";
+	std::cout<<(b+a>c)<<std::endl;
 }
